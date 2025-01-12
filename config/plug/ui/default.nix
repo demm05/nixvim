@@ -6,5 +6,8 @@
 		./dressing.nix
 		./smart-splits.nix
 		./notify.nix
+		./bufferline.nix
+		./noice.nix
+		./neo-tree.nix
 	];
 }

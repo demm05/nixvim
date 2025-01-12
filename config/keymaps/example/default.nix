@@ -1,6 +1,17 @@
 {
-	globals.mapleader = " ";
+	imports = [
+		./lsp.nix
+		./git.nix
+		./files.nix
+		./fzf.nix
+		./notify.nix
+		./smart-splits.nix
+		./telescope.nix
+		./utils.nix
+		./cmp.nix
+	];
 
+	globals.mapleader = " ";
 	keymaps = [
 		{
 			mode = [ "n" "v" ];

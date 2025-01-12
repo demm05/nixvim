@@ -4,5 +4,6 @@
 		./markview.nix
 		./comment.nix
 		./harpoon.nix
+		./spectre.nix
 	];
 }

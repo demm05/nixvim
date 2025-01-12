@@ -8,16 +8,5 @@
     };
   };
   keymaps = [
-    {
-      mode = [
-        "v"
-        "n"
-      ];
-      key = "<leader>go";
-      action = ":lua Snacks.gitbrowse.open()<CR>";
-      options = {
-        desc = "Open git repo";
-      };
-    }
   ];
 }

@@ -4,7 +4,6 @@
 		./sets.nix
 		./plug
 		./highligh.nix
-		./remap.nix
 		./keymaps
 		./plug/utils/42-school.nix
 	];
@@ -28,6 +27,7 @@
 				"paradise"
 				"tokyonight"
 				"yoru"
+				"cyberdream"
 			];
 		};
 	};

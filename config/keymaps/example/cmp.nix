@@ -1,4 +1,3 @@
-
 { lib, config, ... }:
 {
   keymaps = lib.mkIf config.plugins.cmp.enable [

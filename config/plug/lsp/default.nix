@@ -6,7 +6,7 @@
     ./lspsaga.nix
   ];
   plugins = {
-    lsp-format.enable = true;
+    	#lsp-format.enable = true;
     lsp = {
       # https://nix-community.github.io/nixvim/plugins/lsp/index.html
       enable = true;
