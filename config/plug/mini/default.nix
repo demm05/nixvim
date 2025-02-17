@@ -10,7 +10,7 @@
     ./clue.nix
     ./cursorword.nix
     ./diff.nix
-    ./files.nix
+    #   ./files.nix
     ./hipatterns.nix
     ./icons.nix
     ./indentscope.nix
