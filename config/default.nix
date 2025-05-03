@@ -16,11 +16,11 @@ in
       prev ++ optional (type == "directory") (by-name + "/${name}")
     ) [ ] (readDir by-name))
     ++ [
-      #./autocommands.nix
-      ./keys.nix
+      #./keys.nix
       ./options.nix
       ./sets.nix
-      #./highlight.nix
+      ./autocommands.nix
+      ./usercommands.nix
     ];
   nixpkgs = {
     overlays = lib.attrValues self.overlays;

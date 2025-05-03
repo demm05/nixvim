@@ -1,8 +1,9 @@
+{ lib, config, ... }:
 {
+  colorscheme = "catppuccin";
+
   plugins = {
     bufferline.settings = {
-      # NOTE: fixes colorscheme with transparent_background
-      # and better contrast selected tabs
       highlights =
         let
           commonBgColor = "#363a4f";
@@ -62,7 +63,8 @@
   };
 
   colorschemes.catppuccin = {
-    lazyLoad.enable = true;
+    lazyLoad.enable = config.plugins.lz-n.enable;
+    enable = true;
 
     settings = {
       default_integrations = true;
@@ -128,18 +130,14 @@
         sandwich = true;
         semantic_tokens = true;
         symbols_outline = true;
-        telescope = {
-          enabled = true;
-          style = "nvchad";
-        };
         treesitter = true;
         ufo = true;
         which_key = true;
       };
-
       show_end_of_buffer = true;
       term_colors = true;
-      transparent_background = true;
+
+      #transparent_background = true;
     };
   };
 }
