@@ -215,22 +215,22 @@
     }
     {
       mode = "i";
-      key = "<C-k>";
+      key = "<M-k>";
       action = "<C-o>gk";
     }
     {
       mode = "i";
-      key = "<C-h>";
+      key = "<M-h>";
       action = "<Left>";
     }
     {
       mode = "i";
-      key = "<C-l>";
+      key = "<M-l>";
       action = "<Right>";
     }
     {
       mode = "i";
-      key = "<C-j>";
+      key = "<M-j>";
       action = "<C-o>gj";
     }
     {
