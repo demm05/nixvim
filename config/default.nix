@@ -16,8 +16,7 @@ in
       prev ++ optional (type == "directory") (by-name + "/${name}")
     ) [ ] (readDir by-name))
     ++ [
-      #./keys.nix
-      ./options.nix
+      ./remap.nix
       ./sets.nix
       ./autocommands.nix
       ./usercommands.nix

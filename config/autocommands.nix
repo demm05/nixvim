@@ -1,3 +1,4 @@
 {
-  config.autoCmd = [ ];
+  config.autoCmd = [
+  ];
 }
