@@ -46,7 +46,7 @@
           };
           list.selection = {
             auto_insert = false;
-            preselect = true;
+            preselect = false;
           };
           menu = {
             border = "rounded";

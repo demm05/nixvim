@@ -23,6 +23,7 @@ let
     "BufferLine"
     "Treesitter"
     "Blink"
+    "Trouble"
   ];
 in
 {

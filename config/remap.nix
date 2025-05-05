@@ -1,3 +1,4 @@
+{ lib, config, ... }:
 {
   globals = {
     mapleader = " ";
@@ -5,9 +6,250 @@
   };
   keymaps = [
     {
-      mode = "n";
+      mode = "n"; # back and fourth between the two most recent files
       key = "<C-b>";
       action = "<cmd>b#<CR>";
+    }
+    {
+      mode = "n";
+      key = "<Space>";
+      action = "<NOP>";
+    }
+    {
+      mode = "n"; # Esc to clear search results
+      key = "<esc>";
+      action = "<cmd>noh<CR>";
+    }
+    {
+      mode = "n"; # Backspace delete in normal
+      key = "<BS>";
+      action = "<BS>x";
+    }
+    {
+      mode = "n";
+      key = "Y";
+      action = "y$";
+    }
+    {
+      mode = "n";
+      key = "<C-s>";
+      action = "<Esc><cmd>w<CR>";
+    }
+    {
+      mode = "n";
+      key = "j";
+      action = "v:count == 0 ? 'gj' : 'j'";
+      options = {
+        desc = "Move cursor down";
+        expr = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "k";
+      action = "v:count == 0 ? 'gk' : 'k'";
+      options = {
+        desc = "Move cursor up";
+        expr = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>q";
+      action = "<Cmd>confirm q<CR>";
+      options = {
+        desc = "Quit";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-n>";
+      action = "<Cmd>enew<CR>";
+      options.desc = "New file";
+    }
+    {
+      mode = "n";
+      key = "|";
+      action = "<Cmd>vsplit<CR>";
+      options.desc = "Vertical split";
+    }
+    {
+      mode = "n";
+      key = "-";
+      action = "<Cmd>split<CR>";
+      options.desc = "Horizontal split";
+    }
+    {
+      mode = "n";
+      key = "<TAB>";
+      action = "<cmd>bnext<CR>";
+      options.desc = "Next buffer (default)";
+    }
+    {
+      mode = "n";
+      key = "<S-TAB>";
+      action = "<cmd>bprevious<CR>";
+      options.desc = "Previous buffer";
+    }
+    {
+      mode = "n";
+      key = "<leader>td";
+      action.__raw = ''
+        function ()
+          vim.b.disable_diagnostics = not vim.b.disable_diagnostics
+          if vim.b.disable_diagnostics then
+            vim.diagnostic.disable(0)
+          else
+            vim.diagnostic.enable(0)
+          end
+          vim.notify(string.format("Buffer Diagnostics %s", bool2str(not vim.b.disable_diagnostics), "info"))
+        end'';
+      options.desc = "Buffer Diagnostics toggle";
+    }
+    {
+      mode = "n";
+      key = "<leader>tD";
+      action.__raw = ''
+        function ()
+          vim.g.disable_diagnostics = not vim.g.disable_diagnostics
+          if vim.g.disable_diagnostics then
+            vim.diagnostic.disable()
+          else
+            vim.diagnostic.enable()
+          end
+          vim.notify(string.format("Global Diagnostics %s", bool2str(not vim.g.disable_diagnostics), "info"))
+        end'';
+      options.desc = "Global Diagnostics toggle";
+    }
+    {
+      mode = "n";
+      key = "<leader>tf";
+      action.__raw = ''
+        function ()
+          vim.cmd('FormatToggle!')
+          vim.notify(string.format("Buffer Autoformatting %s", bool2str(not vim.b[0].disable_autoformat), "info"))
+        end'';
+      options.desc = "Buffer Autoformatting toggle";
+    }
+    {
+      mode = "n";
+      key = "<leader>tF";
+      action.__raw = ''
+        function ()
+          vim.cmd('FormatToggle')
+          vim.notify(string.format("Global Autoformatting %s", bool2str(not vim.g.disable_autoformat), "info"))
+        end'';
+      options.desc = "Global Autoformatting toggle";
+    }
+    {
+      mode = "n";
+      key = "<leader>tS";
+      action.__raw = ''
+        function ()
+          if vim.g.spell_enabled then vim.cmd('setlocal nospell') end
+          if not vim.g.spell_enabled then vim.cmd('setlocal spell') end
+          vim.g.spell_enabled = not vim.g.spell_enabled
+          vim.notify(string.format("Spell %s", bool2str(vim.g.spell_enabled), "info"))
+        end'';
+      options.desc = "Spell toggle";
+    }
+    {
+      mode = "n";
+      key = "<leader>tw";
+      action.__raw = ''
+        function ()
+          vim.wo.wrap = not vim.wo.wrap
+          vim.notify(string.format("Wrap %s", bool2str(vim.wo.wrap), "info"))
+        end'';
+      options.desc = "Word Wrap toggle";
+    }
+    {
+      mode = "n";
+      key = "<leader>th";
+      action.__raw = ''
+        function ()
+          local curr_foldcolumn = vim.wo.foldcolumn
+          if curr_foldcolumn ~= "0" then vim.g.last_active_foldcolumn = curr_foldcolumn end
+          vim.wo.foldcolumn = curr_foldcolumn == "0" and (vim.g.last_active_foldcolumn or "1") or "0"
+          vim.notify(string.format("Fold Column %s", bool2str(vim.wo.foldcolumn), "info"))
+        end'';
+      options.desc = "Fold Column toggle";
+    }
+    {
+      mode = "x";
+      key = "<leader>p";
+      action = ''\"_dP'';
+      options = {
+        silent = false;
+        desc = "Paste without overwrite buffer";
+      };
+    }
+    {
+      mode = "v";
+      key = "<";
+      action = "<gv";
+      options.desc = "Unindent line";
+    }
+    {
+      mode = "v";
+      key = "<S-Tab>";
+      action = "<gv";
+      options.desc = "Unindent line";
+    }
+    {
+      mode = "v";
+      key = ">";
+      action = ">gv";
+      options.desc = "Indent line";
+    }
+    {
+      mode = "v";
+      key = "<Tab>";
+      action = ">gv";
+      options.desc = "Indent line";
+    }
+    {
+      mode = "v";
+      key = "<BS>";
+      action = "x";
+    }
+    {
+      mode = "i";
+      key = "<C-k>";
+      action = "<C-o>gk";
+    }
+    {
+      mode = "i";
+      key = "<C-h>";
+      action = "<Left>";
+    }
+    {
+      mode = "i";
+      key = "<C-l>";
+      action = "<Right>";
+    }
+    {
+      mode = "i";
+      key = "<C-j>";
+      action = "<C-o>gj";
+    }
+    {
+      mode = "n";
+      key = "N";
+      action = "Nzzzv";
+      options = {
+        silent = true;
+        desc = "When searching to keep result in the midle";
+      };
+    }
+    {
+      mode = "x";
+      key = "<leader>p";
+      action = ''\"_dP'';
+      options = {
+        silent = false;
+        desc = "Paste without overwrite buffer";
+      };
     }
   ];
 }

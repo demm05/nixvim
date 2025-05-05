@@ -5,6 +5,7 @@
 {
   imports = [
     ./clangd.nix
+    ./lines.nix
   ];
 
   extraConfigLuaPre = ''
