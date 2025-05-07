@@ -65,31 +65,41 @@
       mode = "n";
       key = "<C-n>";
       action = "<Cmd>enew<CR>";
-      options.desc = "New file";
+      options = {
+        desc = "New file";
+      };
     }
     {
       mode = "n";
       key = "|";
       action = "<Cmd>vsplit<CR>";
-      options.desc = "Vertical split";
+      options = {
+        desc = "Vertical split";
+      };
     }
     {
       mode = "n";
       key = "-";
       action = "<Cmd>split<CR>";
-      options.desc = "Horizontal split";
+      options = {
+        desc = "Horizontal split";
+      };
     }
     {
       mode = "n";
       key = "<TAB>";
       action = "<cmd>bnext<CR>";
-      options.desc = "Next buffer (default)";
+      options = {
+        desc = "Next buffer (default)";
+      };
     }
     {
       mode = "n";
       key = "<S-TAB>";
       action = "<cmd>bprevious<CR>";
-      options.desc = "Previous buffer";
+      options = {
+        desc = "Previous buffer";
+      };
     }
     {
       mode = "n";
@@ -104,7 +114,9 @@
           end
           vim.notify(string.format("Buffer Diagnostics %s", bool2str(not vim.b.disable_diagnostics), "info"))
         end'';
-      options.desc = "Buffer Diagnostics toggle";
+      options = {
+        desc = "Buffer Diagnostics toggle";
+      };
     }
     {
       mode = "n";
@@ -119,7 +131,9 @@
           end
           vim.notify(string.format("Global Diagnostics %s", bool2str(not vim.g.disable_diagnostics), "info"))
         end'';
-      options.desc = "Global Diagnostics toggle";
+      options = {
+        desc = "Global Diagnostics toggle";
+      };
     }
     {
       mode = "n";
@@ -129,7 +143,9 @@
           vim.cmd('FormatToggle!')
           vim.notify(string.format("Buffer Autoformatting %s", bool2str(not vim.b[0].disable_autoformat), "info"))
         end'';
-      options.desc = "Buffer Autoformatting toggle";
+      options = {
+        desc = "Buffer Autoformatting toggle";
+      };
     }
     {
       mode = "n";
@@ -139,7 +155,9 @@
           vim.cmd('FormatToggle')
           vim.notify(string.format("Global Autoformatting %s", bool2str(not vim.g.disable_autoformat), "info"))
         end'';
-      options.desc = "Global Autoformatting toggle";
+      options = {
+        desc = "Global Autoformatting toggle";
+      };
     }
     {
       mode = "n";
@@ -151,7 +169,9 @@
           vim.g.spell_enabled = not vim.g.spell_enabled
           vim.notify(string.format("Spell %s", bool2str(vim.g.spell_enabled), "info"))
         end'';
-      options.desc = "Spell toggle";
+      options = {
+        desc = "Spell toggle";
+      };
     }
     {
       mode = "n";
@@ -161,7 +181,9 @@
           vim.wo.wrap = not vim.wo.wrap
           vim.notify(string.format("Wrap %s", bool2str(vim.wo.wrap), "info"))
         end'';
-      options.desc = "Word Wrap toggle";
+      options = {
+        desc = "Word Wrap toggle";
+      };
     }
     {
       mode = "n";
@@ -173,7 +195,9 @@
           vim.wo.foldcolumn = curr_foldcolumn == "0" and (vim.g.last_active_foldcolumn or "1") or "0"
           vim.notify(string.format("Fold Column %s", bool2str(vim.wo.foldcolumn), "info"))
         end'';
-      options.desc = "Fold Column toggle";
+      options = {
+        desc = "Fold Column toggle";
+      };
     }
     {
       mode = "x";
@@ -188,25 +212,33 @@
       mode = "v";
       key = "<";
       action = "<gv";
-      options.desc = "Unindent line";
+      options = {
+        desc = "Unindent line";
+      };
     }
     {
       mode = "v";
       key = "<S-Tab>";
       action = "<gv";
-      options.desc = "Unindent line";
+      options = {
+        desc = "Unindent line";
+      };
     }
     {
       mode = "v";
       key = ">";
       action = ">gv";
-      options.desc = "Indent line";
+      options = {
+        desc = "Indent line";
+      };
     }
     {
       mode = "v";
       key = "<Tab>";
       action = ">gv";
-      options.desc = "Indent line";
+      options = {
+        desc = "Indent line";
+      };
     }
     {
       mode = "v";
@@ -217,21 +249,31 @@
       mode = "i";
       key = "<M-k>";
       action = "<C-o>gk";
+      options = { };
     }
     {
       mode = "i";
       key = "<M-h>";
       action = "<Left>";
+      options = { };
     }
     {
       mode = "i";
       key = "<M-l>";
       action = "<Right>";
+      options = { };
     }
     {
       mode = "i";
       key = "<M-j>";
       action = "<C-o>gj";
+      options = { };
+    }
+    {
+      mode = "i";
+      key = "<C-v>";
+      action = "<Esc><C-v>";
+      options = { };
     }
     {
       mode = "n";

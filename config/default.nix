@@ -17,6 +17,7 @@ in
     ) [ ] (readDir by-name))
     ++ [
       ./remap.nix
+      ./lua.nix
       ./sets.nix
       ./autocommands.nix
       ./usercommands.nix
