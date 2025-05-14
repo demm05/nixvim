@@ -81,7 +81,7 @@
         }
         {
           mode = "n";
-          key = "<leader>fb";
+          key = "<leader>bf";
           action = ''<cmd>lua Snacks.picker.buffers()<cr>'';
           options = {
             desc = "Find buffers";

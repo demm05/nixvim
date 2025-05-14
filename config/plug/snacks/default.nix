@@ -8,6 +8,7 @@
     ./indent.nix
     ./bigfile.nix
     ./picker.nix
+    ./bufdelete.nix
   ];
 
   plugins = {

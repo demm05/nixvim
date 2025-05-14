@@ -4,7 +4,7 @@
   ...
 }:
 {
-  plugins.settings.bufdelete = {
+  plugins.snacks.settings.bufdelete = {
     enabled = true;
   };
 
