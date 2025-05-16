@@ -2,7 +2,6 @@
 {
   globals = {
     mapleader = " ";
-    disable_autoformat = false;
   };
   keymaps = [
     {
@@ -103,6 +102,29 @@
     }
     {
       mode = "n";
+      key = "<leader>lr";
+      action.__raw = ''
+        function ()
+          vim.lsp.buf.rename()
+        end
+      '';
+      options = {
+        desc = "Word Replace";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ti";
+      action.__raw = ''
+        function ()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({0}), {0})
+        end'';
+      options = {
+        desc = "Inlay lsp hints";
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>td";
       action.__raw = ''
         function ()
@@ -183,20 +205,6 @@
         end'';
       options = {
         desc = "Word Wrap toggle";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>th";
-      action.__raw = ''
-        function ()
-          local curr_foldcolumn = vim.wo.foldcolumn
-          if curr_foldcolumn ~= "0" then vim.g.last_active_foldcolumn = curr_foldcolumn end
-          vim.wo.foldcolumn = curr_foldcolumn == "0" and (vim.g.last_active_foldcolumn or "1") or "0"
-          vim.notify(string.format("Fold Column %s", bool2str(vim.wo.foldcolumn), "info"))
-        end'';
-      options = {
-        desc = "Fold Column toggle";
       };
     }
     {

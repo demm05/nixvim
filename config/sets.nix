@@ -25,7 +25,7 @@
 
     # Custom for toggles
     disable_diagnostics = false;
-    disable_autoformat = false;
+    disable_autoformat = true;
     spell_enabled = true;
     colorizing_enabled = false;
     first_buffer_opened = false;
@@ -85,30 +85,6 @@
 
     textwidth = 0; # Maximum width of text that is being inserted.  A longer line will be
     #   broken after white space to get this width.
-
-    # Folding
-    foldlevel = 99; # Folds with a level higher than this number will be closed
-    foldcolumn = "1";
-    foldenable = true;
-    foldlevelstart = -1;
-    fillchars = {
-      horiz = "━";
-      horizup = "┻";
-      horizdown = "┳";
-      vert = "┃";
-      vertleft = "┫";
-      vertright = "┣";
-      verthoriz = "╋";
-
-      eob = " ";
-      diff = "╱";
-
-      fold = " ";
-      foldopen = "";
-      foldclose = "";
-
-      msgsep = "‾";
-    };
 
     # backspace = { append = [ "nostop" ]; };
     breakindent = true;

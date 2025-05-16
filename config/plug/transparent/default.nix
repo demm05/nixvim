@@ -24,6 +24,7 @@ let
     "Treesitter"
     "Blink"
     "Trouble"
+    "Lsp"
   ];
 in
 {

@@ -16,7 +16,7 @@
 
   plugins.lsp = {
     enable = true;
-    inlayHints = true;
+    inlayHints = false;
     servers = {
       bashls.enable = true;
       biome.enable = true;

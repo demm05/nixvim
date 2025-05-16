@@ -99,7 +99,7 @@
               "buffer"
               "lsp"
               "path"
-              "snippets"
+              # "snippets"
             ]
             ++ lib.optional (config.plugins.blink-cmp-dictionary.enable or false) "dictionary"
             ++ lib.optional (config.plugins.blink-emoji.enable or false) "emoji"
